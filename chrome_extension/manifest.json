@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "YT Downloader One-Click",
+  "version": "1.0",
+  "description": "StĂˇhne video jedinĂ˝m kliknutĂ­m",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": ["activeTab"]
+}

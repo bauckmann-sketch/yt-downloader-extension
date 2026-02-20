@@ -2,35 +2,73 @@
 <html>
 
 <head>
+    <meta charset="UTF-8">
     <style>
         body {
-            width: 200px;
-            padding: 10px;
-            font-family: sans-serif;
+            width: 220px;
+            padding: 15px;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
             text-align: center;
+            background: #ffffff;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .yt-icon {
+            background: #ff0000;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .title {
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            font-size: 18px;
+            color: #0f0f0f;
         }
 
         button {
-            padding: 10px;
+            padding: 12px;
             cursor: pointer;
-            background: #ff0000;
+            background: #065fd4;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 18px;
             width: 100%;
+            font-weight: 600;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background: #054ea3;
         }
 
         #status {
-            margin-top: 10px;
+            margin-top: 15px;
             font-size: 12px;
+            color: #606060;
+            min-height: 1.2em;
         }
     </style>
 </head>
 
 <body>
-    <h3>YouTube Downloader</h3>
-    <button id="dlBtn">StĂˇhnout video</button>
-    <div id="status"></div>
+    <div class="header">
+        <span class="yt-icon">▶</span>
+        <span class="title">YouTube</span>
+    </div>
+    <button id="dlBtn">Stáhnout video</button>
+    <div id="status">Připraveno ke stahování</div>
     <script src="popup.js"></script>
 </body>
 

@@ -1,29 +1,38 @@
-# YouTube Downloader Extension
+# YouTube Downloader Pro v3.7 (Stable Edition)
 
-Tento projekt umoĹľĹuje stahovĂˇnĂ­ YouTube videĂ­ pĹ™Ă­mo z prohlĂ­ĹľeÄŤe Chrome do sloĹľky Downloads na vaĹˇem poÄŤĂ­taÄŤi jedinĂ˝m kliknutĂ­m.
+Moderní a vysoce stabilní rozšíření pro Google Chrome, které umožňuje stahování videí z YouTube přímo do tvého počítače pomocí lokálního PowerShell serveru.
 
-## Jak to zprovoznit na novĂ©m poÄŤĂ­taÄŤi
+## 🚀 Proč tato verze? (Historie vývoje)
 
-### 1. PĹ™Ă­prava Pythonu
-1. Nainstalujte **Python 3** (z python.org nebo pĹ™es winget).
-2. Nainstalujte potĹ™ebnĂ© knihovny:
-   ```powershell
-   pip install flask flask-cors yt-dlp
-   ```
+Tento projekt prošel několika fázemi vývoje, aby dosáhl maximální stability:
 
-### 2. SpuĹˇtÄ›nĂ­ serveru
-1. StĂˇhnÄ›te/Naklonujte toto repo.
-2. SpusĹĄte server:
-   ```powershell
-   python yt_server.py
-   ```
-   *Toto okno nechte bÄ›Ĺľet, zatĂ­mco chcete stahovat.*
+1.  **Fáze 1: Cloud API (Cobalt v7/v10)** - *SELHALO*. 
+    - **Důvod:** YouTube a cloudové služby (Cobalt) zavedly přísné restrikce (JWT tokeny, CORS policy), které blokovaly přímé volání z doplňků prohlížeče.
+2.  **Fáze 2: Python Backend** - *ZAVRŽENO*. 
+    - **Důvod:** Vyžaduje instalaci Pythonu a závislostí, což bylo pro uživatele nepohodlné.
+3.  **Fáze 3: PowerShell Backend (Aktuální)** - **VÍTĚZ**. 
+    - **Důvod:** Využívá nativní nástroje Windows (PowerShell), které jsou v každém systému. Kombinace s profesionálním motorem `yt-dlp` zaručuje, žeYouTube stahování nezablokuje, protože se tváří jako běžný prohlížeč.
 
-### 3. Instalace doplĹku do Chromu
-1. OtevĹ™ete v Chrome: `chrome://extensions/`
-2. ZapnÄ›te **Developer mode** (ReĹľim vĂ˝vojĂˇĹ™e).
-3. KliknÄ›te na **Load unpacked** (NaÄŤĂ­st rozbalenĂ˝).
-4. Vyberte sloĹľku `chrome_extension` z tohoto repozitĂˇĹ™e.
+## 🛠️ Instalace a spuštění
 
-## PouĹľitĂ­
-NavĹˇtivte jakĂ©koli video na YouTube, kliknÄ›te na ikonu doplĹku a zvolte **StĂˇhnout video**. Soubor se uloĹľĂ­ do vaĹˇĂ­ systĂ©movĂ© sloĹľky **Downloads**.
+### 1. Prerekvizity (Jednorázově)
+Otevři PowerShell jako administrátor a spusť:
+```powershell
+winget install yt-dlp
+```
+
+### 2. Spuštění serveru
+V každé relaci, kdy chceš stahovat, spusť tento skript:
+```powershell
+powershell -ExecutionPolicy Bypass -File "path/to/yt_server.ps1"
+```
+
+### 3. Instalace doplňku
+1. Jdi na `chrome://extensions/`.
+2. Zapni "Developer Mode".
+3. Klikni na "Load unpacked" a vyber složku `chrome_extension`.
+
+## 📁 Technické detaily
+- **Server:** PowerShell HTTP Listener (Port 5003).
+- **Frontend:** Vanilla JS Chrome Extension v3.
+- **Stahování:** yt-dlp s podporou FFmpeg pro maximální kvalitu.

@@ -1,10 +1,16 @@
 {
   "manifest_version": 3,
-  "name": "YT Downloader One-Click",
-  "version": "1.0",
-  "description": "StĂˇhne video jedinĂ˝m kliknutĂ­m",
+  "name": "YT Downloader Pro",
+  "version": "3.0",
+  "description": "Stahování videí přes lokální PowerShell server",
   "action": {
-    "default_popup": "popup.html"
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
   },
-  "permissions": ["activeTab"]
+  "icons": {
+    "128": "icon.png"
+  },
+  "permissions": [
+    "activeTab"
+  ]
 }
